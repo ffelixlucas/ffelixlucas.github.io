@@ -14,3 +14,6 @@
     background-color:#41bfb3 ;
     color: #260101;
 }
+.main-button.-full{
+   width: 100%; 
+}
