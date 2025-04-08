@@ -1,8 +1,10 @@
-
 # Landing Page de Lucas
 
 Esta é a landing page oficial de Lucas, desenvolvedor Full Stack. O projeto foi construído com foco em design moderno, responsividade, acessibilidade e uma experiência de usuário envolvente. A página inclui seções para apresentar sua jornada, habilidades, projetos e informações de contato, além de interações dinâmicas e validação de formulário com feedback visual.
 
+## Visualização Online
+
+Você pode visualizar a página diretamente em: [https://ffelixlucas.github.io/](https://ffelixlucas.github.io/)
 ## Índice
 
 - [Características](#características)
