@@ -1,132 +1,175 @@
-// ===== SHOW MENU =====
-const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close');
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-// Abrir Menu
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.add('show-menu');
-        document.body.style.overflow = 'hidden';
-    });
+function toast(msg) {
+  const el = $("#toast");
+  if (!el) return;
+  el.textContent = msg;
+  el.classList.add("is-visible");
+  window.clearTimeout(toast._t);
+  toast._t = window.setTimeout(() => el.classList.remove("is-visible"), 2200);
 }
 
-// Fechar Menu
-if (navClose) {
-    navClose.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu');
-        document.body.style.overflow = 'auto';
-    });
+function setupYear() {
+  const y = $("#year");
+  if (y) y.textContent = String(new Date().getFullYear());
 }
 
-// Fechar ao clicar em links
-const navLinks = document.querySelectorAll('.nav__link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu');
-        document.body.style.overflow = 'auto';
-    });
-});
+function setupNav() {
+  const navMenu = $("#nav-menu");
+  const navToggle = $("#nav-toggle");
+  const navClose = $("#nav-close");
 
-// Fechar ao clicar fora
-document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 768 && navMenu.classList.contains('show-menu') && 
-        !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-        navMenu.classList.remove('show-menu');
-        document.body.style.overflow = 'auto';
-    }
-});
+  function open() {
+    if (!navMenu) return;
+    navMenu.classList.add("is-open");
+    document.documentElement.style.overflow = "hidden";
+  }
+  function close() {
+    if (!navMenu) return;
+    navMenu.classList.remove("is-open");
+    document.documentElement.style.overflow = "";
+  }
 
-// ===== SCROLL ATIVO =====
-function scrollActive() {
-    const scrollY = window.pageYOffset;
-    const sections = document.querySelectorAll('section[id]');
+  if (navToggle) navToggle.addEventListener("click", open);
+  if (navClose) navClose.addEventListener("click", close);
 
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 58;
-        const sectionId = section.getAttribute('id');
+  $$(".nav__link").forEach((a) => a.addEventListener("click", close));
 
-        const navLink = document.querySelector(`.nav__link[href*="${sectionId}"]`);
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLink.classList.add('active');
-        } else {
-            navLink.classList.remove('active');
-        }
-    });
+  document.addEventListener("click", (e) => {
+    if (!navMenu || !navMenu.classList.contains("is-open")) return;
+    if (e.target === navMenu) close();
+  });
 }
-window.addEventListener('scroll', scrollActive);
 
-// ===== SCROLL UP =====
-function scrollUp() {
-    const scrollUpBtn = document.getElementById('scroll-up');
-    if (window.scrollY >= 350) {
-        scrollUpBtn.classList.add('show');
-    } else {
-        scrollUpBtn.classList.remove('show');
-    }
+function setupReveal() {
+  const nodes = $$("[data-reveal]");
+  if (!nodes.length) return;
+
+  const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  if (prefersReduced) {
+    nodes.forEach((n) => n.classList.add("is-visible"));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        e.target.classList.add("is-visible");
+        io.unobserve(e.target);
+      }
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -10% 0px" },
+  );
+
+  nodes.forEach((n) => io.observe(n));
 }
-window.addEventListener('scroll', scrollUp);
 
-// ===== SCROLL REVEAL =====
-const sr = ScrollReveal({
-    origin: 'top',
-    distance: '40px',
-    duration: 1000,
-    delay: 200,
-    reset: true
-});
+function setupActiveSection() {
+  const links = $$(".nav__link");
+  const sections = $$("section[id]");
+  if (!links.length || !sections.length) return;
 
-sr.reveal('.home__content, .home__image, .home__social, .home__scroll', { interval: 100 });
-sr.reveal('.about__image, .about__content', { origin: 'left' });
-sr.reveal('.skills__content', { interval: 100 });
-sr.reveal('.project__card', { interval: 100 });
-sr.reveal('.contact__info, .contact__form', { interval: 100 });
-sr.reveal('.footer__container, .footer__bottom', { origin: 'bottom' });
+  const byId = new Map(links.map((a) => [a.getAttribute("href")?.slice(1), a]));
 
-// ===== TYPED.JS =====
-const typed = new Typed('.typed-text', {
-    strings: ['Desenvolvedor Full Stack', 'Solucionador de Problemas', 'Apaixonado por Tecnologia'],
-    typeSpeed: 50,
-    backSpeed: 30,
-    backDelay: 1000,
-    loop: true,
-    showCursor: false
-});
+  const io = new IntersectionObserver(
+    (entries) => {
+      // choose the most visible entry
+      const visible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
+      if (!visible) return;
 
-const homeScroll = document.querySelector('.home__scroll');
-homeScroll.addEventListener('click', () => {
-    document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
-});
+      const id = visible.target.id;
+      links.forEach((a) => a.classList.remove("is-active"));
+      byId.get(id)?.classList.add("is-active");
+    },
+    { threshold: [0.2, 0.35, 0.5, 0.65], rootMargin: "-20% 0px -55% 0px" },
+  );
 
+  sections.forEach((s) => io.observe(s));
+}
 
-// ===== FORMULÁRIO DE CONTATO =====
-const contactForm = document.getElementById('contact-form');
+function setupScrollTop() {
+  const btn = $("#scrolltop");
+  if (!btn) return;
 
-contactForm.addEventListener('submit', (e) => {
+  function sync() {
+    if (window.scrollY >= 420) btn.classList.add("is-visible");
+    else btn.classList.remove("is-visible");
+  }
+  sync();
+  window.addEventListener("scroll", sync, { passive: true });
+  btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+}
+
+async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    toast("Copiado.");
+  } catch {
+    // Fallback: select + execCommand
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+    toast("Copiado.");
+  }
+}
+
+function setupCopyButtons() {
+  $$("[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", () => copyText(btn.getAttribute("data-copy") || ""));
+  });
+}
+
+function setupContactForm() {
+  const form = $("#contact-form");
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const subject = document.getElementById('subject').value.trim();
-    const message = document.getElementById('message').value.trim();
+    const data = new FormData(form);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const subject = String(data.get("subject") || "").trim();
+    const message = String(data.get("message") || "").trim();
 
     if (!name || !email || !subject || !message) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'Atenção!',
-            text: 'Por favor, preencha todos os campos.',
-            confirmButtonColor: '#2e86de'
-        });
-        return;
+      toast("Preencha todos os campos.");
+      return;
     }
 
-    Swal.fire({
-        icon: 'success',
-        title: 'Mensagem Enviada!',
-        text: 'Entrarei em contato em breve.',
-        confirmButtonColor: '#2e86de'
-    }).then(() => {
-        contactForm.reset();
-    });
-});
+    const body = [
+      `Nome: ${name}`,
+      `Email: ${email}`,
+      "",
+      message,
+      "",
+      "--",
+      "Enviado via portfólio (ffelixlucas.github.io)",
+    ].join("\n");
+
+    const to = "lucas.fafx@gmail.com";
+    const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    toast("Abrindo seu e-mail…");
+    window.location.href = mailto;
+  });
+}
+
+setupYear();
+setupNav();
+setupReveal();
+setupActiveSection();
+setupScrollTop();
+setupCopyButtons();
+setupContactForm();
+

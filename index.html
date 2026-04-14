@@ -1,410 +1,538 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Portfólio profissional de Lucas - Desenvolvedor Full Stack com foco em soluções criativas e eficientes">
-        <meta name="keywords" content="desenvolvedor, full stack, portfólio, JavaScript, front-end, back-end">
-        <meta name="author" content="Lucas">
-        <meta name="robots" content="index, follow">
-    
-        <!-- Open Graph (para WhatsApp, Facebook, LinkedIn, etc.) -->
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://ffelixlucas.github.io/">
-        <meta property="og:title" content="Lucas | Desenvolvedor Full Stack">
-        <meta property="og:description" content="Transformando ideias em soluções digitais impactantes">
-        <meta property="og:image" content="https://ffelixlucas.github.io/assets/img/og-image.jpg">
-    
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:url" content="https://ffelixlucas.github.io/">
-        <meta property="twitter:title" content="Lucas | Desenvolvedor Full Stack">
-        <meta property="twitter:description" content="Transformando ideias em soluções digitais impactantes">
-        <meta property="twitter:image" content="https://ffelixlucas.github.io/assets/img/og-image.jpg">
-    
-        <title>Lucas | Desenvolvedor Full Stack</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-              integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-              crossorigin="anonymous" referrerpolicy="no-referrer">
-    
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="assets/img/favicon_full_face.ico" type="image/x-icon">
-    </head>
-    
-<body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#home" class="nav__logo" aria-label="Início">Lucas<span>.</span></a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfólio profissional de Lucas: desenvolvimento full stack com foco em operação real (autenticação, pagamentos, painéis e automações)."
+    />
+    <meta
+      name="keywords"
+      content="desenvolvedor, full stack, node.js, react, mysql, pagamentos, APIs, portfólio"
+    />
+    <meta name="author" content="Lucas" />
+    <meta name="robots" content="index, follow" />
 
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active" aria-label="Seção Início">Início</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link" aria-label="Seção Sobre">Sobre</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link" aria-label="Seção Habilidades">Habilidades</a></li>
-                    <li class="nav__item"><a href="#projects" class="nav__link" aria-label="Seção Projetos">Projetos</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link" aria-label="Seção Contato">Contato</a></li>
-                </ul>
-                <button class="nav__close" id="nav-close" aria-label="Fechar menu">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ffelixlucas.github.io/" />
+    <meta property="og:title" content="Lucas | Full Stack" />
+    <meta
+      property="og:description"
+      content="Sistemas web com foco em operação real: autenticação, pagamentos, painéis e automações."
+    />
+    <meta property="og:image" content="https://ffelixlucas.github.io/assets/img/og-image.jpg" />
 
-            <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </nav>
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://ffelixlucas.github.io/" />
+    <meta property="twitter:title" content="Lucas | Full Stack" />
+    <meta
+      property="twitter:description"
+      content="Sistemas web com foco em operação real: autenticação, pagamentos, painéis e automações."
+    />
+    <meta property="twitter:image" content="https://ffelixlucas.github.io/assets/img/og-image.jpg" />
+
+    <title>Lucas | Full Stack</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Mono:wght@500&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#projects">Pular para projetos</a>
+
+    <header class="site-header" id="header">
+      <nav class="container nav" aria-label="Navegação principal">
+        <a href="#home" class="brand" aria-label="Início">
+          <span class="brand__name">Lucas</span><span class="brand__dot">.</span>
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="#home" class="nav__link is-active">Início</a></li>
+            <li><a href="#about" class="nav__link">Sobre</a></li>
+            <li><a href="#skills" class="nav__link">Stack</a></li>
+            <li><a href="#projects" class="nav__link">Projetos</a></li>
+            <li><a href="#contact" class="nav__link">Contato</a></li>
+          </ul>
+          <button class="nav__close" id="nav-close" type="button" aria-label="Fechar menu">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Abrir menu">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
-      <div class="snap-container">
-        <!-- Home Section -->
-        <section class="home section" id="home">
-          <div class="home__container container grid">
-              <div class="home__wrapper">
-                  <div class="home__content">
-                      <h1 class="home__title">Oi eu sou o <span>Lucas</span> <i class="fa-solid fa-hand-peace home__hand" aria-hidden="true"></i></h1>
-                      <h2 class="home__subtitle typed-text"></h2>
-                      <p class="home__description">Transformo ideias em soluções digitais impactantes com foco em performance e experiência do usuário.</p>
-                      <div class="home__buttons">
-                          <a href="#contact" class="button button--primary" aria-label="Entrar em contato">
-                              <i class="fa-regular fa-paper-plane"></i> Contato
-                          </a>
-                          <a href="#projects" class="button button--ghost" aria-label="Ver projetos">
-                              <i class="fa-regular fa-folder-open"></i> Projetos
-                          </a>
-                      </div>
-                      <div class="home__social">
-                          <a href="https://linkedin.com/in/lucasfanhafelix" target="_blank" class="home__social-link" aria-label="LinkedIn">
-                              <i class="fa-brands fa-linkedin-in"></i>
-                          </a>
-                          <a href="https://github.com/ffelixlucas" target="_blank" class="home__social-link" aria-label="GitHub">
-                              <i class="fa-brands fa-github"></i>
-                          </a>
-                          <a href="https://twitter.com/ffelixlucas" target="_blank" class="home__social-link" aria-label="Twitter">
-                              <i class="fa-brands fa-twitter"></i>
-                          </a>
-                      </div>
-                  </div>
-                  <div class="home__image">
-                      <img src="assets/img/pixelart.png" alt="Foto de Lucas" loading="lazy">
-                  </div>
+      <section class="section section--hero" id="home">
+        <div class="container hero">
+          <div class="hero__grid">
+            <div class="hero__copy" data-reveal>
+              <p class="kicker">Desenvolvedor full stack autônomo</p>
+              <h1 class="hero__title">
+                Eu construo sistemas web que funcionam no mundo real:
+                <span class="hero__accent">pagamentos</span>, <span class="hero__accent">autenticação</span>,
+                <span class="hero__accent">painéis</span> e <span class="hero__accent">automações</span>.
+              </h1>
+              <p class="hero__lead">
+                Foco em operação e manutenção: do fluxo do usuário ao “e se der ruim?”, com segurança, rastreio e
+                código legível.
+              </p>
+
+              <div class="hero__cta">
+                <a class="btn btn--solid" href="#projects">
+                  <i class="fa-regular fa-folder-open" aria-hidden="true"></i>
+                  Ver projetos
+                </a>
+                <a class="btn btn--ghost" href="#contact">
+                  <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
+                  Falar comigo
+                </a>
               </div>
-              <a href="#about" class="home__scroll" aria-label="Rolar para próxima seção">
-                  <i class="fa-solid fa-mouse" aria-hidden="true"></i>
-                  <span class="home__scroll-text">Rolar para baixo</span>
-              </a>
+
+              <div class="hero__links" aria-label="Links sociais">
+                <a
+                  href="https://linkedin.com/in/lucasfanhafelix"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="icon-link"
+                  aria-label="LinkedIn"
+                >
+                  <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://github.com/ffelixlucas"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="icon-link"
+                  aria-label="GitHub"
+                >
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="mailto:lucas.fafx@gmail.com"
+                  class="icon-link"
+                  aria-label="Enviar e-mail"
+                  title="lucas.fafx@gmail.com"
+                >
+                  <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+
+            <aside class="hero__side" data-reveal>
+              <div class="portrait">
+                <img src="assets/img/fotolinkedin.jpg" alt="Foto de Lucas" width="520" height="520" />
+              </div>
+              <div class="hero__meta">
+                <p class="meta__line">
+                  <span class="pill"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Brasil</span>
+                  <span class="pill"><i class="fa-solid fa-bolt" aria-hidden="true"></i> React + Node</span>
+                </p>
+                <p class="meta__line meta__line--muted">
+                  Aberto a projetos e parcerias. Sem “formato pronto”, eu adapto o sistema ao que você realmente
+                  precisa operar.
+                </p>
+              </div>
+            </aside>
           </div>
+
+          <div class="hero__highlights" data-reveal>
+            <div class="highlight">
+              <p class="highlight__title">Produto e operação</p>
+              <p class="highlight__text">Fluxos completos, monitoramento, auditoria e manutenção.</p>
+            </div>
+            <div class="highlight">
+              <p class="highlight__title">Pagamentos e integrações</p>
+              <p class="highlight__text">PIX, cartão e boleto com provedores e webhooks.</p>
+            </div>
+            <div class="highlight">
+              <p class="highlight__title">Segurança pragmática</p>
+              <p class="highlight__text">Autorização correta, isolamento e bordas bem definidas.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
-        <!-- About Section -->
-        <section class="about section" id="about">
-            <div class="about__container container grid">
-                <div class="about__image">
-                    <img src="assets/img/fotolinkedin.jpg" alt="Foto de Lucas trabalhando" class="about__img" loading="lazy">
-                    <div class="about__shadow"></div>
-                </div>
-                <div class="about__content">
-                    <h2 class="section__title">Minha <span>Jornada</span></h2>
-                    <p class="about__description">Minha jornada na tecnologia começou cedo, com um curso Técnico em Informática durante o ensino médio. No Exército, aprendi disciplina e responsabilidade, e mais tarde, com Logística, desenvolvi uma visão estratégica de processos. Hoje, como desenvolvedor full stack, combino técnica, resiliência e paixão para criar soluções digitais completas e eficientes.</p>
-                    <div class="about__info">
-                        <div class="about__card">
-                            <i class="fa-solid fa-award about__icon" aria-hidden="true"></i>
-                            <h3 class="about__title">Experiência</h3>
-                            <span class="about__subtitle">2 Anos</span>
-                        </div>
-                        <div class="about__card">
-                            <i class="fa-solid fa-briefcase about__icon" aria-hidden="true"></i>
-                            <h3 class="about__title">Projetos</h3>
-                            <span class="about__subtitle">4 Completos</span>
-                        </div>
-                    </div>
-                    <div class="about__buttons">
-                        <a href="#contact" class="button button--primary" aria-label="Entrar em contato">
-                            <i class="fa-regular fa-envelope"></i> Contato
-                        </a>
-                        <a href="https://github.com/ffelixlucas" target="_blank" class="button button--ghost" aria-label="Ver GitHub">
-                            <i class="fa-brands fa-github"></i> GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <section class="section" id="about">
+        <div class="container">
+          <header class="section__header" data-reveal>
+            <h2 class="section__title">Sobre</h2>
+            <p class="section__subtitle">O que eu faço bem, sem teatro</p>
+          </header>
 
-        <!-- Skills Section -->
-        <section class="skills section" id="skills">
-            <div class="container">
-                <h2 class="section__title">Minhas <span>Habilidades</span></h2>
-                <p class="section__subtitle">Tecnologias e competências que domino</p>
-                <div class="skills__container grid">
-                    <div class="skills__content">
-                        <h3 class="skills__title"><i class="fa-solid fa-paintbrush" aria-hidden="true"></i> Frontend</h3>
-                        <div class="skills__box">
-                            <div class="skills__group">
-                                <div class="skills__item">
-                                    <i class="fa-brands fa-html5" aria-hidden="true"></i>
-                                    <div>
-                                        <h4>HTML5</h4>
-                                        <span>Avançado</span>
-                                    </div>
-                                </div>
-                                <div class="skills__item">
-                                    <i class="fa-brands fa-css3-alt" aria-hidden="true"></i>
-                                    <div>
-                                        <h4>CSS3</h4>
-                                        <span>Intermediário</span>
-                                    </div>
-                                </div>
-                                <div class="skills__item">
-                                    <i class="fa-brands fa-js" aria-hidden="true"></i>
-                                    <div>
-                                        <h4>JavaScript</h4>
-                                        <span>Intermediário</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__group">
-                                <div class="skills__item">
-                                    <i class="fa-brands fa-react" aria-hidden="true"></i>
-                                    <div>
-                                        <h4>React</h4>
-                                        <span>Intermediário</span>
-                                    </div>
-                                </div>
-                                <div class="skills__item">
-                                    <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>
-                                    <div>
-                                        <h4>Responsividade</h4>
-                                        <span>Intermediário</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skills__content">
-                        <h3 class="skills__title"><i class="fa-solid fa-server" aria-hidden="true"></i> Backend</h3>
-                        <div class="skills__box">
-                            <div class="skills__group">
-                                <div class="skills__item">
-                                    <i class="fa-brands fa-node-js" aria-hidden="true"></i>
-                                    <div>
-                                        <h4>Node.js</h4>
-                                        <span>Intermediário</span>
-                                    </div>
-                                </div>
-                                <div class="skills__item">
-                                    <i class="fa-solid fa-database" aria-hidden="true"></i>
-                                    <div>
-                                        <h4>MySQL</h4>
-                                        <span>Intermediário em estudo</span>
-                                    </div>
-                                </div>
-                                <div class="skills__item">
-                                    <i class="fa-solid fa-server" aria-hidden="true"></i>
-                                    <div>
-                                        <h4>APIs REST</h4>
-                                        <span>Em estudo</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skills__group">
-                                <div class="skills__item">
-                                    <i class="fa-solid fa-lock" aria-hidden="true"></i>
-                                    <div>
-                                        <h4>JWT</h4>
-                                        <span>Intermediário</span>
-                                    </div>
-                                </div>
-                                <div class="skills__item">
-                                    <i class="fa-solid fa-check-double" aria-hidden="true"></i>
-                                    <div>
-                                        <h4>Integrações</h4>
-                                        <span>Intermediário</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="about" data-reveal>
+            <div class="about__copy">
+              <p>
+                Sou desenvolvedor full stack e trabalho de forma autônoma construindo sistemas web com foco em
+                operação real. Atuo em backend, frontend, pagamentos, automações, painéis administrativos e lógica de
+                negócio.
+              </p>
+              <p>
+                Minha trajetória começou fora da tecnologia (logística e produção). Isso virou vantagem: disciplina,
+                organização e hábito de resolver problema com o que existe, sem depender de mil ferramentas.
+              </p>
+              <p class="about__note">
+                Eu gosto do tipo de projeto em que “funcionou” não significa só abrir a tela. Significa rodar, cobrar,
+                registrar, conciliar, dar suporte e evoluir.
+              </p>
             </div>
-        </section>
 
-        <!-- Projects Section -->
-        <section class="projects section" id="projects">
-            <div class="container">
-                <h2 class="section__title">Projetos <span>Recentes</span></h2>
-                <p class="section__subtitle">Trabalhos práticos que destacam minhas habilidades</p>
-                <div class="projects__container grid">
-                    <!-- Projeto Future Trade -->
-                    <article class="project__card">
-                        <img src="assets/img/projeto-future.png" alt="Future Trade" class="project__img" loading="lazy">
-                        <div class="project__content">
-                            <h3 class="project__title">Future Trade</h3>
-                            <p class="project__description">Site institucional da Future Trade, feito com HTML, CSS e JS puro. Responsivo, moderno e com foco em performance.</p>
-                            <div class="project__buttons">
-                                <a href="https://futuretrade.com.br" class="button button--small" aria-label="Ver site da Future Trade" target="_blank">
-                                    <i class="fa-regular fa-eye"></i> Ver Site
-                                </a>
-                                <a href="https://github.com/ffelixlucas/futuretrade-site" class="button button--small button--ghost" aria-label="Ver código no GitHub" target="_blank">
-                                    <i class="fa-brands fa-github"></i> Código
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <!-- Projeto Contador JS -->
-                    <article class="project__card">
-                        <img src="assets/img/placeholder-contador.png" alt="Contador JS" class="project__img" loading="lazy">
-                        <div class="project__content">
-                            <h3 class="project__title">Contador JS</h3>
-                            <p class="project__description">Contador interativo desenvolvido com JavaScript puro.</p>
-                            <div class="project__buttons">
-                                <a href="#" class="button button--small" aria-label="Ver demonstração do Contador JS">
-                                    <i class="fa-regular fa-eye"></i> Demo
-                                </a>
-                                <a href="#" class="button button--small button--ghost" aria-label="Ver código no GitHub">
-                                    <i class="fa-brands fa-github"></i> Código
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <!-- Projeto To-Do List -->
-                    <article class="project__card">
-                        <img src="assets/img/placeholder-to-do-list.png" alt="To-Do List" class="project__img" loading="lazy">
-                        <div class="project__content">
-                            <h3 class="project__title">To-Do List</h3>
-                            <p class="project__description">Lista de tarefas com CRUD e armazenamento local.</p>
-                            <div class="project__buttons">
-                                <a href="#" class="button button--small" aria-label="Ver demonstração da To-Do List">
-                                    <i class="fa-regular fa-eye"></i> Demo
-                                </a>
-                                <a href="#" class="button button--small button--ghost" aria-label="Ver código no GitHub">
-                                    <i class="fa-brands fa-github"></i> Código
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                
-                    <!-- Projeto API de Clima -->
-                    <article class="project__card">
-                        <img src="assets/img/project3.jpg" alt="API de Clima" class="project__img" loading="lazy">
-                        <div class="project__content">
-                            <h3 class="project__title">API de Clima</h3>
-                            <p class="project__description">Aplicativo de previsão do tempo com integração de API.</p>
-                            <div class="project__buttons">
-                                <a href="#" class="button button--small" aria-label="Ver demonstração da API de Clima">
-                                    <i class="fa-regular fa-eye"></i> Demo
-                                </a>
-                                <a href="#" class="button button--small button--ghost" aria-label="Ver código no GitHub">
-                                    <i class="fa-brands fa-github"></i> Código
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                
+            <div class="about__facts" aria-label="Destaques">
+              <div class="fact">
+                <p class="fact__big">Full stack</p>
+                <p class="fact__small">API, banco, UI, deploy</p>
+              </div>
+              <div class="fact">
+                <p class="fact__big">Pagamentos</p>
+                <p class="fact__small">checkout, webhook, repasse</p>
+              </div>
+              <div class="fact">
+                <p class="fact__big">Pés no chão</p>
+                <p class="fact__small">código legível, sem gambiarra</p>
+              </div>
+              <div class="fact">
+                <p class="fact__big">Aprendizado</p>
+                <p class="fact__small">profundidade antes de moda</p>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <!-- Contact Section -->
-        <section class="contact section" id="contact">
-            <div class="container">
-                <h2 class="section__title">Entre em <span>Contato</span></h2>
-                <p class="section__subtitle">Vamos conversar sobre seu próximo projeto</p>
-                <div class="contact__container grid">
-                    <div class="contact__cards">
-                        <div class="contact__card">
-                            <i class="fa-solid fa-envelope contact__icon" aria-hidden="true"></i>
-                            <h3 class="contact__title">Email</h3>
-                            <span class="contact__data">lucas.fafx@gmail.com</span>
-                            <a href="mailto:lucas.fafx@gmail.com" class="button button--small" aria-label="Enviar email">
-                                Escrever <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                        <div class="contact__card">
-                            <i class="fa-brands fa-whatsapp contact__icon" aria-hidden="true"></i>
-                            <h3 class="contact__title">WhatsApp</h3>
-                            <span class="contact__data">+55 (41) 9 9964-4302</span>
-                            <a href="https://wa.me/5541999644302" target="_blank" class="button button--small" aria-label="Enviar mensagem no WhatsApp">
-                                Mensagem <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                        <div class="contact__card">
-                            <i class="fa-brands fa-linkedin-in contact__icon" aria-hidden="true"></i>
-                            <h3 class="contact__title">LinkedIn</h3>
-                            <span class="contact__data">lucasfanhafelix</span>
-                            <a href="https://linkedin.com/in/lucasfanhafelix" target="_blank" class="button button--small" aria-label="Conectar no LinkedIn">
-                                Conectar <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <form class="contact__form" id="contact-form">
-                        <div class="form__group">
-                            <label for="name" class="form__label">Nome</label>
-                            <input type="text" id="name" name="name" placeholder="Seu nome completo" required aria-required="true">
-                        </div>
-                        <div class="form__group">
-                            <label for="email" class="form__label">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Seu melhor email" required aria-required="true">
-                        </div>
-                        <div class="form__group">
-                            <label for="subject" class="form__label">Assunto</label>
-                            <input type="text" id="subject" name="subject" placeholder="Sobre o que deseja falar?" required aria-required="true">
-                        </div>
-                        <div class="form__group">
-                            <label for="message" class="form__label">Mensagem</label>
-                            <textarea id="message" name="message" rows="6" placeholder="Descreva seu projeto ou dúvida" required aria-required="true"></textarea>
-                        </div>
-                        <button type="submit" class="button button--primary" aria-label="Enviar mensagem">
-                            <i class="fa-regular fa-paper-plane"></i> Enviar Mensagem
-                        </button>
-                    </form>
+      <section class="section" id="skills">
+        <div class="container">
+          <header class="section__header" data-reveal>
+            <h2 class="section__title">Stack</h2>
+            <p class="section__subtitle">Ferramentas que eu uso para entregar e manter</p>
+          </header>
+
+          <div class="chips" data-reveal>
+            <span class="chip"><i class="fa-brands fa-node-js" aria-hidden="true"></i> Node.js</span>
+            <span class="chip"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Express</span>
+            <span class="chip"><i class="fa-brands fa-react" aria-hidden="true"></i> React</span>
+            <span class="chip"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Vite</span>
+            <span class="chip"><i class="fa-solid fa-database" aria-hidden="true"></i> MySQL</span>
+            <span class="chip"><i class="fa-solid fa-key" aria-hidden="true"></i> JWT</span>
+            <span class="chip"><i class="fa-solid fa-lock" aria-hidden="true"></i> Segurança (na prática)</span>
+            <span class="chip"><i class="fa-solid fa-plug" aria-hidden="true"></i> Integrações</span>
+            <span class="chip"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Deploy</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="container">
+          <header class="section__header" data-reveal>
+            <h2 class="section__title">Projetos</h2>
+            <p class="section__subtitle">Uma amostra do que eu já coloquei de pé</p>
+          </header>
+
+          <div class="projects" aria-label="Lista de projetos">
+            <article class="project" style="--p1: #1e7f72; --p2: #d0653f" data-reveal>
+              <div class="project__cover" aria-hidden="true">
+                <span class="project__mark">CB</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Capoeira Base</h3>
+                <p class="project__desc">
+                  SaaS multi-tenant com painel admin e fluxo de inscrições/pagamentos (PIX, cartão e boleto), com
+                  webhooks e conciliação operacional.
+                </p>
+                <div class="project__tags" aria-label="Tecnologias">
+                  <span class="tag">Node</span>
+                  <span class="tag">React</span>
+                  <span class="tag">Pagamentos</span>
+                  <span class="tag">Multi-tenant</span>
                 </div>
+                <div class="project__links">
+                  <a class="btn btn--mini btn--solid" href="https://capoeira-base.vercel.app" target="_blank" rel="noreferrer">
+                    <i class="fa-regular fa-eye" aria-hidden="true"></i> Demo
+                  </a>
+                  <a
+                    class="btn btn--mini btn--ghost"
+                    href="https://github.com/ffelixlucas/capoeira-base"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <i class="fa-brands fa-github" aria-hidden="true"></i> Código
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project" style="--p1: #1f6feb; --p2: #d0653f" data-reveal>
+              <div class="project__cover" aria-hidden="true">
+                <span class="project__mark">SL</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Sistema Login</h3>
+                <p class="project__desc">
+                  Backend + frontend com autenticação JWT, rotas protegidas e base para painéis administrativos e
+                  automações de operação.
+                </p>
+                <div class="project__tags" aria-label="Tecnologias">
+                  <span class="tag">Node</span>
+                  <span class="tag">React</span>
+                  <span class="tag">JWT</span>
+                  <span class="tag">MySQL</span>
+                </div>
+                <div class="project__links">
+                  <a
+                    class="btn btn--mini btn--ghost"
+                    href="https://github.com/ffelixlucas/sistema-login"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <i class="fa-brands fa-github" aria-hidden="true"></i> Código
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project" style="--p1: #d0653f; --p2: #1e7f72" data-reveal>
+              <div class="project__cover" aria-hidden="true">
+                <span class="project__mark">CF</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">LT CashFlow</h3>
+                <p class="project__desc">
+                  Aplicação para controle e visualização de fluxo de caixa com base de dados e validações. Projeto
+                  estruturado como monorepo.
+                </p>
+                <div class="project__tags" aria-label="Tecnologias">
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Web</span>
+                  <span class="tag">DB</span>
+                  <span class="tag">Monorepo</span>
+                </div>
+                <div class="project__links">
+                  <a
+                    class="btn btn--mini btn--ghost"
+                    href="https://github.com/ffelixlucas/LT-CASHFLOW"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <i class="fa-brands fa-github" aria-hidden="true"></i> Código
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project" style="--p1: #1e7f72; --p2: #1f6feb" data-reveal>
+              <div class="project__cover" aria-hidden="true">
+                <span class="project__mark">CN</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Capoeira Nota 10</h3>
+                <p class="project__desc">
+                  Site institucional refatorado para uma arquitetura componentizada (Vite + TypeScript), com seções,
+                  dados centralizados e manutenção mais simples.
+                </p>
+                <div class="project__tags" aria-label="Tecnologias">
+                  <span class="tag">Vite</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Componentes</span>
+                </div>
+                <div class="project__links">
+                  <a
+                    class="btn btn--mini btn--ghost"
+                    href="https://github.com/ffelixlucas/CN1O"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <i class="fa-brands fa-github" aria-hidden="true"></i> Código
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project" style="--p1: #1f6feb; --p2: #1e7f72" data-reveal>
+              <div class="project__cover" aria-hidden="true">
+                <span class="project__mark">RW</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Rifa Web App</h3>
+                <p class="project__desc">
+                  App React com rotas, animações e integração com serviços (Firebase) para experiência de usuário fluida
+                  em um fluxo de campanha/engajamento.
+                </p>
+                <div class="project__tags" aria-label="Tecnologias">
+                  <span class="tag">React</span>
+                  <span class="tag">Vite</span>
+                  <span class="tag">Firebase</span>
+                  <span class="tag">Framer Motion</span>
+                </div>
+                <div class="project__links">
+                  <a
+                    class="btn btn--mini btn--ghost"
+                    href="https://github.com/ffelixlucas/rifa-web-app"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <i class="fa-brands fa-github" aria-hidden="true"></i> Código
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project" style="--p1: #d0653f; --p2: #1f6feb" data-reveal>
+              <div class="project__cover" aria-hidden="true">
+                <span class="project__mark">FT</span>
+              </div>
+              <div class="project__body">
+                <h3 class="project__title">Future Trade</h3>
+                <p class="project__desc">
+                  Site institucional responsivo, com foco em performance e clareza. Um projeto “simples”, mas bem feito:
+                  rápido, leve e direto.
+                </p>
+                <div class="project__tags" aria-label="Tecnologias">
+                  <span class="tag">HTML</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">JavaScript</span>
+                </div>
+                <div class="project__links">
+                  <a class="btn btn--mini btn--solid" href="https://futuretrade.com.br" target="_blank" rel="noreferrer">
+                    <i class="fa-regular fa-eye" aria-hidden="true"></i> Site
+                  </a>
+                  <a
+                    class="btn btn--mini btn--ghost"
+                    href="https://github.com/ffelixlucas/futuretrade-site"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <i class="fa-brands fa-github" aria-hidden="true"></i> Código
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <p class="projects__more" data-reveal>
+            Mais projetos no
+            <a href="https://github.com/ffelixlucas" target="_blank" rel="noreferrer">GitHub</a>.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <header class="section__header" data-reveal>
+            <h2 class="section__title">Contato</h2>
+            <p class="section__subtitle">Se fizer sentido, a gente conversa e define o escopo</p>
+          </header>
+
+          <div class="contact" data-reveal>
+            <div class="contact__cards" aria-label="Canais de contato">
+              <div class="contact-card">
+                <p class="contact-card__title"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Email</p>
+                <p class="contact-card__value">lucas.fafx@gmail.com</p>
+                <div class="contact-card__actions">
+                  <a class="btn btn--mini btn--solid" href="mailto:lucas.fafx@gmail.com">Abrir</a>
+                  <button class="btn btn--mini btn--ghost" type="button" data-copy="lucas.fafx@gmail.com">
+                    Copiar
+                  </button>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <p class="contact-card__title"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp</p>
+                <p class="contact-card__value">+55 (41) 9 9964-4302</p>
+                <div class="contact-card__actions">
+                  <a class="btn btn--mini btn--solid" href="https://wa.me/5541999644302" target="_blank" rel="noreferrer"
+                    >Mensagem</a
+                  >
+                  <button class="btn btn--mini btn--ghost" type="button" data-copy="+5541999644302">Copiar</button>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <p class="contact-card__title"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> LinkedIn</p>
+                <p class="contact-card__value">lucasfanhafelix</p>
+                <div class="contact-card__actions">
+                  <a
+                    class="btn btn--mini btn--solid"
+                    href="https://linkedin.com/in/lucasfanhafelix"
+                    target="_blank"
+                    rel="noreferrer"
+                    >Conectar</a
+                  >
+                </div>
+              </div>
             </div>
-        </section>
-      </div>
+
+            <form class="contact__form" id="contact-form">
+              <p class="form__hint">
+                Este formulário não envia mensagem sozinho: ele monta um e-mail no seu app com os campos preenchidos.
+              </p>
+
+              <label class="field">
+                <span>Nome</span>
+                <input name="name" autocomplete="name" required placeholder="Seu nome" />
+              </label>
+
+              <label class="field">
+                <span>Email</span>
+                <input name="email" type="email" autocomplete="email" required placeholder="seu@email.com" />
+              </label>
+
+              <label class="field">
+                <span>Assunto</span>
+                <input name="subject" required placeholder="Ex: Projeto / orçamento / parceria" />
+              </label>
+
+              <label class="field">
+                <span>Mensagem</span>
+                <textarea name="message" rows="6" required placeholder="Me conta o contexto e o objetivo."></textarea>
+              </label>
+
+              <button class="btn btn--solid" type="submit">
+                <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
+                Gerar email
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="footer__container container grid">
-            <div class="footer__brand">
-                <a href="#home" class="footer__logo" aria-label="Início">Lucas<span>.</span></a>
-                <p class="footer__description">Desenvolvedor Full Stack criando soluções digitais com foco no usuário.</p>
-                <div class="footer__social">
-                    <a href="https://linkedin.com/in/lucasfanhafelix" target="_blank" class="footer__social-link" aria-label="LinkedIn">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/ffelixlucas" target="_blank" class="footer__social-link" aria-label="GitHub">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                    <a href="https://twitter.com/ffelixlucas" target="_blank" class="footer__social-link" aria-label="Twitter">
-                        <i class="fa-brands fa-twitter"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="footer__bottom container">
-            <p class="footer__copy">© 2025 Lucas. Todos os direitos reservados.</p>
-            <div class="footer__legal">
-                <a href="" aria-label="Política de Privacidade">Privacidade</a>
-                <a href="" aria-label="Termos de Uso">Termos</a>
-            </div>
-        </div>
+      <div class="container footer__inner">
+        <p class="footer__brand">Lucas<span class="brand__dot">.</span></p>
+        <p class="footer__meta">
+          <span>© <span id="year"></span></span>
+          <span class="footer__sep">/</span>
+          <a href="https://github.com/ffelixlucas" target="_blank" rel="noreferrer">GitHub</a>
+          <span class="footer__sep">/</span>
+          <a href="mailto:lucas.fafx@gmail.com">Email</a>
+        </p>
+      </div>
     </footer>
 
-    <!-- Scroll Up -->
-    <a href="#home" class="scrollup" id="scroll-up" aria-label="Voltar ao topo">
-        <i class="fa-solid fa-arrow-up"></i>
-    </a>
+    <button class="scrolltop" id="scrolltop" type="button" aria-label="Voltar ao topo">
+      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

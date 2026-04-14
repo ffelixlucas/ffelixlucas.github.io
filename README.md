@@ -1,6 +1,6 @@
-# Landing Page de Lucas
+# Portfólio de Lucas
 
-Esta é a landing page oficial de Lucas, desenvolvedor Full Stack. O projeto foi construído com foco em design moderno, responsividade, acessibilidade e uma experiência de usuário envolvente. A página inclui seções para apresentar sua jornada, habilidades, projetos e informações de contato, além de interações dinâmicas e validação de formulário com feedback visual.
+Portfólio/landing page com visual autoral (tipografia forte + fundo “paper/ink”), foco em legibilidade, performance e narrativa de projetos. É um site estático para GitHub Pages.
 
 ## Visualização Online
 
@@ -18,23 +18,20 @@ Você pode visualizar a página diretamente em: [https://ffelixlucas.github.io/]
 
 ## Características
 
-- **Design Moderno & Responsivo:** Layout construído com CSS Grid e media queries, garantindo uma boa experiência em dispositivos móveis e desktops.
-- **Scroll Snap & Animações:** Uso de scroll snapping para as seções e animações com ScrollReveal, proporcionando uma navegação fluida.
-- **Acessibilidade:** Implementação de atributos ARIA, rótulos e práticas semânticas para melhorar a experiência de pessoas com necessidades especiais.
-- **Menu Móvel Interativo:** Menu hambúrguer com exibição e ocultação dinâmica, bloqueando o scroll do body quando aberto.
-- **Formulário de Contato com Feedback:** Validação dos campos e feedback visual utilizando SweetAlert2 para uma mensageria amigável.
-- **Texto Animado:** Integração com Typed.js para exibir de forma dinâmica suas principais habilidades.
-- **Efeito Neon & Halo:** Efeitos visuais na imagem de destaque para um toque moderno e diferenciado.
+- **Design autoral & responsivo:** Grid/Flex, tipografia com Google Fonts e layout consistente em mobile/desktop.
+- **Acessibilidade:** skip link, semântica, `aria-*`, foco visível.
+- **Menu móvel:** overlay com trava de scroll.
+- **Animações leves:** reveal com `IntersectionObserver` (respeita `prefers-reduced-motion`).
+- **Contato honesto:** o formulário gera um `mailto:` no seu app de e-mail (não “envia fake”).
+- **Sem dependências de animação:** sem ScrollReveal/Typed/SweetAlert; só HTML/CSS/JS.
 
 ## Tecnologias Utilizadas
 
 - **HTML5:** Estrutura semântica e otimizada para SEO e acessibilidade.
-- **CSS3:** Estilização com variáveis, Grid, Flexbox e animações.
-- **JavaScript:** Lógica para interações, menu móvel, scroll ativo, animações e feedback do formulário.
+- **CSS3:** Variáveis, Grid/Flex, responsividade, fundo com gradientes/textura.
+- **JavaScript:** Menu, seção ativa, reveal, botão “voltar ao topo”, copiar contato e geração de e-mail.
 - **Font Awesome:** Ícones vetoriais para melhor representação visual.
-- **ScrollReveal:** Efeitos de revelação de elementos durante o scroll.
-- **Typed.js:** Efeito de digitação para exibir texto dinâmico.
-- **SweetAlert2:** Feedback interativo no envio do formulário de contato.
+- **Google Fonts:** Tipografia do site.
 
 ## Estrutura do Projeto
 
@@ -63,10 +60,10 @@ landing-page/
 
 ## Customizações
 
-- **Conteúdo:** Atualize as seções do `index.html` (Home, About, Skills, Projects e Contact) com seu conteúdo pessoal.
-- **Estilos:** Personalize as variáveis CSS no início do `style.css` para ajustar cores, fontes e tamanhos conforme sua identidade visual.
-- **Imagens:** Substitua ou adicione imagens na pasta `assets/img/` para refletir seu portfólio e personalidade.
-- **Interações:** Caso deseje modificar alguma interação (por exemplo, tempo de animação ou comportamento do menu), ajuste os scripts no `script.js`.
+- **Conteúdo:** Atualize textos e links no `index.html`.
+- **Estilos:** Ajuste as variáveis CSS no topo do `style.css` (cores, fontes e sombras).
+- **Projetos:** Edite a seção `#projects` para adicionar/remover cards e tags.
+- **Contato:** O e-mail destino do formulário fica em `script.js` (procure por `lucas.fafx@gmail.com`).
 
 ## Contribuição
 
@@ -83,5 +80,3 @@ Distribuído sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais inf
 - **GitHub:** [github.com/ffelixlucas](https://github.com/ffelixlucas)
 
 ---
-
-*Aproveite para personalizar a landing page e torná-la a sua cara. Sucesso na sua jornada digital!*
