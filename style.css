@@ -590,14 +590,14 @@ button {
   font-size: 30px;
   opacity: 0.92;
 }
-.integration-logo .integration-logo__brand {
-  width: 64px;
-  height: 24px;
-}
 .integration-logo--text {
   font-size: 20px;
   letter-spacing: 0;
   font-weight: 800;
+}
+.integration-logo:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--c) 55%, transparent);
+  outline-offset: 4px;
 }
 .integration-logo:hover {
   color: var(--ink);
