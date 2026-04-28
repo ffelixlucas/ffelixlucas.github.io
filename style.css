@@ -175,6 +175,9 @@ button {
 .section--hero {
   padding-top: clamp(68px, 10vh, 120px);
 }
+.section--compact {
+  padding-top: 0;
+}
 .section__header {
   margin-bottom: 26px;
 }
@@ -542,6 +545,45 @@ button {
   border: 1px solid rgba(17, 16, 15, 0.12);
   background: rgba(255, 255, 255, 0.62);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Integrations */
+.integration-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid rgba(16, 20, 24, 0.12);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(17, 24, 39, 0.96);
+  box-shadow: var(--shadow-soft);
+}
+.integration-logo {
+  min-height: 74px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.74);
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  transition: background 160ms ease, color 160ms ease;
+}
+.integration-logo:nth-child(4n) {
+  border-right: 0;
+}
+.integration-logo:nth-last-child(-n + 4) {
+  border-bottom: 0;
+}
+.integration-logo i {
+  color: rgba(255, 255, 255, 0.62);
+}
+.integration-logo:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
 }
 
 /* Projects */
@@ -972,6 +1014,21 @@ textarea:focus {
   .projects {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .integration-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .integration-logo:nth-child(4n) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .integration-logo:nth-last-child(-n + 4) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .integration-logo:nth-child(3n) {
+    border-right: 0;
+  }
+  .integration-logo:nth-last-child(-n + 3) {
+    border-bottom: 0;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1022,6 +1079,24 @@ textarea:focus {
   }
   .projects {
     grid-template-columns: 1fr;
+  }
+  .integration-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .integration-logo,
+  .integration-logo:nth-child(3n),
+  .integration-logo:nth-child(4n) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .integration-logo:nth-last-child(-n + 3),
+  .integration-logo:nth-last-child(-n + 4) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .integration-logo:nth-child(2n) {
+    border-right: 0;
+  }
+  .integration-logo:nth-last-child(-n + 2) {
+    border-bottom: 0;
   }
   .hero__side {
     grid-template-columns: 1fr;
