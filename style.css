@@ -551,71 +551,44 @@ button {
 .integration-slider {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(16, 20, 24, 0.12);
-  border-radius: calc(var(--radius) + 2px);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 46%),
-    #111827;
-  box-shadow:
-    var(--shadow-soft),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-.integration-slider::before,
-.integration-slider::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  z-index: 2;
-  width: 96px;
-  height: 100%;
-  pointer-events: none;
-}
-.integration-slider::before {
-  left: 0;
-  background: linear-gradient(90deg, rgba(17, 24, 39, 1), rgba(17, 24, 39, 0));
-}
-.integration-slider::after {
-  right: 0;
-  background: linear-gradient(270deg, rgba(17, 24, 39, 1), rgba(17, 24, 39, 0));
+  padding-block: 4px;
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
 .integration-track {
   display: flex;
-  gap: 10px;
-  padding: 12px;
+  gap: 34px;
+  padding: 8px 0;
   width: max-content;
-  animation: integration-slide 36s linear infinite;
+  animation: integration-slide 34s linear infinite;
 }
 .integration-slider:hover .integration-track {
   animation-play-state: paused;
 }
 .integration-logo {
-  width: 176px;
-  min-height: 72px;
+  width: 166px;
+  min-height: 56px;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex: 0 0 auto;
-  gap: 11px;
-  padding: 16px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.035);
-  color: rgba(255, 255, 255, 0.78);
+  gap: 12px;
+  padding: 10px 0;
+  color: rgba(16, 20, 24, 0.84);
   font-weight: 750;
   font-size: 16px;
-  text-align: center;
+  text-align: left;
   white-space: nowrap;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+  transition: color 160ms ease, opacity 160ms ease, transform 160ms ease;
 }
 .integration-logo img,
 .integration-logo i {
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
   flex: 0 0 auto;
   object-fit: contain;
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 26px;
+  color: rgba(16, 20, 24, 0.86);
+  font-size: 30px;
+  opacity: 0.92;
 }
 .integration-logo--text {
   font-size: 20px;
@@ -623,9 +596,7 @@ button {
   font-weight: 800;
 }
 .integration-logo:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.18);
-  color: #ffffff;
+  color: var(--ink);
   transform: translateY(-2px);
 }
 @keyframes integration-slide {
@@ -1138,17 +1109,16 @@ textarea:focus {
   .projects {
     grid-template-columns: 1fr;
   }
-  .integration-slider::before,
-  .integration-slider::after {
-    width: 42px;
+  .integration-slider {
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   }
   .integration-track {
+    gap: 24px;
     animation-duration: 26s;
   }
   .integration-logo {
-    width: 146px;
-    min-height: 68px;
-    padding-inline: 14px;
+    width: 132px;
+    min-height: 52px;
     font-size: 14px;
   }
   .integration-logo--text {
