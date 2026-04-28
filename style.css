@@ -590,6 +590,10 @@ button {
   font-size: 30px;
   opacity: 0.92;
 }
+.integration-logo .integration-logo__brand {
+  width: 64px;
+  height: 24px;
+}
 .integration-logo--text {
   font-size: 20px;
   letter-spacing: 0;
