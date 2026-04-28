@@ -129,6 +129,48 @@ function setupCopyButtons() {
   });
 }
 
+function setupPreviewModal() {
+  const modal = $("#preview-modal");
+  const img = $("#preview-image");
+  const title = $("#preview-title");
+  const closeBtn = $(".preview-modal__close");
+  const triggers = $$("[data-preview]");
+  if (!modal || !img || !title || !triggers.length) return;
+
+  let lastFocus = null;
+
+  function open(btn) {
+    const src = btn.getAttribute("data-preview");
+    const label = btn.getAttribute("data-preview-title") || "Prévia do projeto";
+    if (!src) return;
+
+    lastFocus = btn;
+    img.src = src;
+    img.alt = label;
+    title.textContent = label;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.documentElement.style.overflow = "hidden";
+    closeBtn?.focus();
+  }
+
+  function close() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.documentElement.style.overflow = "";
+    img.removeAttribute("src");
+    if (lastFocus) lastFocus.focus();
+  }
+
+  triggers.forEach((btn) => btn.addEventListener("click", () => open(btn)));
+  $$("[data-preview-close]", modal).forEach((btn) => btn.addEventListener("click", close));
+
+  document.addEventListener("keydown", (e) => {
+    if (!modal.classList.contains("is-open")) return;
+    if (e.key === "Escape") close();
+  });
+}
+
 function setupContactForm() {
   const form = $("#contact-form");
   if (!form) return;
@@ -171,5 +213,5 @@ setupReveal();
 setupActiveSection();
 setupScrollTop();
 setupCopyButtons();
+setupPreviewModal();
 setupContactForm();
-
